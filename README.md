@@ -1,104 +1,77 @@
 ![](UTA-DataScience-Logo.png)
 
-# Project Title
+# Fashion Mnist Keras model
 
-* **One Sentence Summary** Ex: This repository holds an attempt to apply LSTMs to Stock Market using data from
-"Get Rich" Kaggle challenge (provide link). 
+* **One Sentence Summary** :This repository holds an attempt to use KERAs to several fashion based images using data from the kaggle dataset Fashion MNIST.
 
 ## Overview
 
-* This section could contain a short paragraph which include the following:
-  * **Definition of the tasks / challenge**  Ex: The task, as defined by the Kaggle challenge is to use a time series of 12 features, sampled daily for 1 month, to predict the next day's price of a stock.
-  * **Your approach** Ex: The approach in this repository formulates the problem as regression task, using deep recurrent neural networks as the model with the full time series of features as input. We compared the performance of 3 different network architectures.
-  * **Summary of the performance achieved** Ex: Our best model was able to predict the next day stock price within 23%, 90% of the time. At the time of writing, the best performance on Kaggle of this metric is 18%.
-
-## Summary of Workdone
-
-Include only the sections that are relevant an appropriate.
+ *Definition of the tasks / challenge  : Use KERAs to create a CNN to several fashion based images using data from the kaggle dataset Fashion MNIST.
+  *Your approach : Create a sequential model using several layers with the training dataset as input
+  *Summary of the performance achieved** : The highest accuracy achieved is 92% with a .25 in test loss
+  
+## Summary of Work Done
+I preprocessed the data, splitting the training set into a validation set and rescaling the images to a grayscale. Next I created a sequential model and added the layers: Conv2D, Maxpooling2D, Dropout, Flatten, and dense. Lastly I evaluated the performance of the cnn model and optimized it.  
 
 ### Data
 
-* Data:
-  * Type: For example
-    * Input: medical images (1000x1000 pixel jpegs), CSV file: image filename -> diagnosis
-    * Input: CSV file of features, output: signal/background flag in 1st column.
-  * Size: How much data?
-  * Instances (Train, Test, Validation Split): how many data points? Ex: 1000 patients for training, 200 for testing, none for validation
+* Type: Table of features, 28x28 images
+  * Size: How much data? : 210.17mb 
+  * Instances (Train, Test, Validation Split): how many data points? : 60,000 instances training set, 10,000 instances testing set, 12,000 instances validation set
 
 #### Preprocessing / Clean up
 
-* Describe any manipulations you performed to the data.
+* split data into x (image) and y (label) arrays 
+* rescaled the image from 255 pixels to 0 and 1 for better convergence 
+* split training set to validation set (20% of training set)
 
 #### Data Visualization
 
-Show a few visualization of the data and say a few words about what you see.
+![image](https://user-images.githubusercontent.com/98443119/226213063-a7057dbb-7eb2-49c8-aba1-b7276ba91a24.png)
+![image](https://user-images.githubusercontent.com/98443119/226213074-3c35d627-5255-484f-985a-bf689656031a.png)
 
 ### Problem Formulation
 
 * Define:
-  * Input / Output
-  * Models
-    * Describe the different models you tried and why.
-  * Loss, Optimizer, other Hyperparameters.
-
+  * Input / Output:  x_train, y_train  / Output: x_validate, y_validate
+  * Models: Sequential .
+  * Loss, Optimizer, other Hyperparameters.:Loss= sparse_categorical_crossentropy, Optimizer = Adam, Metrics = Accuracy 
 ### Training
 
 * Describe the training:
-  * How you trained: software and hardware.
-  * How did training take.
-  * Training curves (loss vs epoch for test/train).
-  * How did you decide to stop training.
-  * Any difficulties? How did you resolve them?
+  * How you trained: Software: Tensorflow and Keras. Hardware: intel integrated GPU
+  * Training curves (loss vs epoch for test/train).: The loss and epoch were consistent with each other
+  * How did you decide to stop training.: When I reached high accuracy and a consistent loss/epoch rate
+  * Any difficulties? How did you resolve them? When I first trained the model I got 88% accuracy with an underfitting loss/epochs. To resolve this problem I regularized the model, testing different dropout rates and adding/removing epochs.  
 
 ### Performance Comparison
 
-* Clearly define the key performance metric(s).
-* Show/compare results in one table.
-* Show one (or few) visualization(s) of results, for example ROC curves.
+* Clearly define the key performance metric(s) : Accuracy
+![image](https://user-images.githubusercontent.com/98443119/226213834-a74400e6-8c9e-427a-82bc-3f8824d52128.png)
 
 ### Conclusions
 
-* State any conclusions you can infer from your work. Example: LSTM work better than GRU.
+* 
 
 ### Future Work
 
-* What would be the next thing that you would try.
-* What are some other studies that can be done starting from here.
+Try different layers/metrics
 
 ## How to reproduce results
 
-* In this section, provide instructions at least one of the following:
-   * Reproduce your results fully, including training.
-   * Apply this package to other data. For example, how to use the model you trained.
-   * Use this package to perform their own study.
-* Also describe what resources to use for this package, if appropirate. For example, point them to Collab and TPUs.
+*
 
 ### Overview of files in repository
 
-* Describe the directory structure, if any.
-* List all relavent files and describe their role in the package.
-* An example:
-  * utils.py: various functions that are used in cleaning and visualizing data.
-  * preprocess.ipynb: Takes input data in CSV and writes out data frame after cleanup.
-  * visualization.ipynb: Creates various visualizations of the data.
-  * models.py: Contains functions that build the various models.
-  * training-model-1.ipynb: Trains the first model and saves model during training.
-  * training-model-2.ipynb: Trains the second model and saves model during training.
-  * training-model-3.ipynb: Trains the third model and saves model during training.
-  * performance.ipynb: loads multiple trained models and compares results.
-  * inference.ipynb: loads a trained model and applies it to test data to create kaggle submission.
-
-* Note that all of these notebooks should contain enough text for someone to understand what is happening.
+* Fashion_MNIST.ipynb : the cnn model and preprocessing
 
 ### Software Setup
-* List all of the required packages.
-* If not standard, provide or point to instruction for installing the packages.
-* Describe how to install your package.
+*!pip install tensorflow opencv-python 
+*!pip install keras
 
 ### Data
 
-* Point to where they can download the data.
-* Lead them through preprocessing steps, if necessary.
+https://www.kaggle.com/datasets/zalando-research/fashionmnist
 
 ### Training
 
@@ -111,7 +84,7 @@ Show a few visualization of the data and say a few words about what you see.
 
 ## Citations
 
-* Provide any references.
+* 
 
 
 
