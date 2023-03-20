@@ -51,7 +51,7 @@ I preprocessed the data, splitting the training set into a validation set and re
 
 ### Conclusions
 
-* 
+*
 
 ### Future Work
 
@@ -75,7 +75,7 @@ https://www.kaggle.com/datasets/zalando-research/fashionmnist
 
 ### Training
 
-* Describe how to train the model
+* This model has 6 layers: Conv2D,Maxpool2D,Dropout,Flatten,Dense,Dense. Conv2d is used to extract features and patterns. Maxpool2D reduces the spatial dimensions of the output, this is important to produce a feature map. Dropout is used to drop random units to prevent overfitting. Next is to flatten the previous layer into a 1D array. Dense adds the flatten layer to neural network. 
 
 #### Performance Evaluation
 
