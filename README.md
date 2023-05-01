@@ -8,7 +8,7 @@
 
  *Definition of the tasks / challenge  : Use KERAs to create a CNN to several fashion based images using data from the kaggle dataset Fashion MNIST.
   *Your approach : Create a sequential model using several layers with the training dataset as input
-  *Summary of the performance achieved** : The highest accuracy achieved is 92% with a .25 in test loss
+  *Summary of the performance achieved** : The highest accuracy achieved is 92% with a 0.25 in test loss
   
 ## Summary of Work Done
 I preprocessed the data, splitting the training set into a validation set and rescaling the images to a grayscale. Next I created a sequential model and added the layers: Conv2D, Maxpooling2D, Dropout, Flatten, and dense. Lastly I evaluated the performance of the cnn model and optimized it.  
@@ -51,16 +51,30 @@ I preprocessed the data, splitting the training set into a validation set and re
 
 ### Conclusions
 
-*
+* In conclusion I reached a loss of 0.24 and accuracy of 0.91. 
 
 ### Future Work
 
-Try different layers/metrics
+Try different layers/metrics/parameters
+Use tensorflow and Keras to create a base sequential model and then gather learning from an architecture and apply it to the sequential model to increase accuracy. 
+Evaluate your model each time you train it in order to identify what parameters to change. 
 
 ## How to reproduce results
 
-*
-
+* To apply this package to other data:
+Preprocessing: 
+ Split the data into three arrays, train, test, and validation if applicable. 
+ Normalize the data to convulate the model easier in creating the model 
+Building the model:
+ Use .CONV2D to add biases to the image. Next use .maxpooling to retain the most prominent features of an image.For models with more layers, use Batch Normalizaiton to make the neural network more stable and faster. To expand your model repeat CONV2D + maxpooling + batch normalization in that order for as many layers needed. After the last CONV2D + maxpooling + batch normalization layer, use .flatten to convert the given array to one dimenson. Next use dropout() to prevent overfitting. Use .dense at the end of your functions to classify the images. Lastly compile the model using .compile with the parameters loss, optimizer, and metrics. The loss parameter is used for multi-class classification problems, where the target variable is represented as integers. Optimizer specifies the optimization algorithm to be used during training. Lastly metrics specifies the evaluation metric to be used during training and testing.
+ Notes:
+  CONV2D: There are 4 parameters needed to run: filters, kernals, activation and input_shape. 
+  maxpooling: There is 1 parameter needed to run: pool_size.
+  Dropout: Use a value.
+  Dense: There is 1 parameter: activation. 
+ Training the model: 
+  Use a method in keras, for example: model.kit, and 6 parameters: x_train,y_train, batch_size, epochs, verbose, and validation data. 
+  
 ### Overview of files in repository
 
 * Fashion_MNIST.ipynb : the cnn model and preprocessing
@@ -79,12 +93,11 @@ https://www.kaggle.com/datasets/zalando-research/fashionmnist
 
 #### Performance Evaluation
 
-* Describe how to run the performance evaluation.
+* To evaluate the performance, I created a loss plot to read the accuracy and evaluated the loss/accuracy using tensorflow. 
 
+### Citations
+https://keras.io/api/models/sequential/
 
-## Citations
-
-* 
 
 
 
